@@ -17,33 +17,8 @@ def generate_secret(low, high):
 def get_guess():
     '''get user's guess'''
 
-    guess = int(input('Guess the secret number? '))
+    return (input('Guess the secret number? '))
 
-    if guess == 0:
-        return(guess)
-    if guess == 1:
-        return(guess)
-    if guess == 2:
-        return(guess)
-    if guess == 3:
-        return(guess)
-    if guess == 4:
-        return(guess)
-    if guess == 5:
-        return(guess)
-    if guess == 6:
-        return(guess)
-    if guess == 7:
-        return(guess)
-    if guess == 8:
-        return(guess)
-    if guess == 9:
-        return(guess)
-    if guess == 10:
-        return(guess)
-    else:
-        print("Please enter a number")
-        get_guess()
 
 def check_guess(guess, secret):
     '''compare guess and secret, return string describing result of comparison'''
@@ -63,14 +38,19 @@ def main():
     guess_counter = 0
 
     while True:
-        guess = get_guess()
-        result = check_guess(guess, secret)
-        print(result)
 
-        guess_counter += 1
-        #print(guess_counter)
-        if result == correct:
-            break
+        guess = get_guess()
+        try:
+            guess = int(guess)
+            result = check_guess(guess, secret)
+            print(result)
+
+            guess_counter += 1
+            #print(guess_counter)
+            if result == correct:
+                break
+        except ValueError:
+            print("Not a number.")
 
 
 if __name__ == '__main__':
