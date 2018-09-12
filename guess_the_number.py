@@ -1,4 +1,4 @@
-import random
+import random  #save me to git code comment added
 
 correct = 'you guessed correctly!'
 too_low = 'too low'
